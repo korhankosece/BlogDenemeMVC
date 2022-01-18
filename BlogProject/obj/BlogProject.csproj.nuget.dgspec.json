@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\korha\\source\\repos\\BlogProject\\BlogProject\\BlogProject.csproj": {}
+    "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\korha\\source\\repos\\BlogProject\\BlogProject\\BlogProject.csproj": {
+    "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korha\\source\\repos\\BlogProject\\BlogProject\\BlogProject.csproj",
+        "projectUniqueName": "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj",
         "projectName": "BlogProject",
-        "projectPath": "C:\\Users\\korha\\source\\repos\\BlogProject\\BlogProject\\BlogProject.csproj",
-        "packagesPath": "C:\\Users\\korha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korha\\source\\repos\\BlogProject\\BlogProject\\obj\\",
+        "projectPath": "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj",
+        "packagesPath": "C:\\Users\\melike\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\korha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\melike\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
