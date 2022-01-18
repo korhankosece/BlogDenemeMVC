@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj": {}
+    "C:\\Users\\korha\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj": {
+    "C:\\Users\\korha\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj",
+        "projectUniqueName": "C:\\Users\\korha\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj",
         "projectName": "BlogProject",
-        "projectPath": "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj",
-        "packagesPath": "C:\\Users\\melike\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melike\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\obj\\",
+        "projectPath": "C:\\Users\\korha\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\BlogProject.csproj",
+        "packagesPath": "C:\\Users\\korha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\korha\\Source\\Repos\\BlogDenemeMVC\\BlogProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\melike\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\korha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,32 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

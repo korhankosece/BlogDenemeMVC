@@ -6,7 +6,6 @@ namespace BlogProject.Models.ORM
     {
         public int Id { get; set; }
         public DateTime AddDate { get; set; } = DateTime.Now;
-        public DateTime UpdateDate { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

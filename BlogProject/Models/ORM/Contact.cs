@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BlogProject.Models.ORM
 {
-    public class Contact
+    public class Contact : BaseEntity
     {
         public string Title { get; set; }
         public string Message { get; set; }

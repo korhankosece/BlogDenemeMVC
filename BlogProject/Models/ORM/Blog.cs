@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace BlogProject.Models.ORM
 {
     public class Blog : BaseEntity
@@ -8,5 +10,7 @@ namespace BlogProject.Models.ORM
         public string Content { get; set; }
         public string MainImg { get; set; }
         public int BlogCategoryId { get; set; }
+        [ForeignKey("BlogCategoryId")]
+        public BlogCategory BlogCategory { get; set; }
     }
 }

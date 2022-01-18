@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BlogProject.Models.ORM
 {
-    public class BlogImages
+    public class BlogImages : BaseEntity
     {
         public string Path { get; set; }
         public int BlogId { get; set; }
