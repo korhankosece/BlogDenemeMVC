@@ -9,7 +9,9 @@ namespace BlogProject.Models.ORM
     public class BlogImage : BaseEntity
     {
         public string Path { get; set; }
-        [ForeignKey("BlogId")]
+
         public int BlogId { get; set; }
+        [ForeignKey("BlogId")] 
+        public Blog Blog { get; set; }
     }
 }
