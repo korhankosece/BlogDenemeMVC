@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlogProject.Models.ORM;
+using BlogProject.Models.VM;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,74 @@ namespace BlogProject.Controllers
 {
     public class AdminBlogCategoryController : Controller
     {
-        public IActionResult Index()
+        BlogProjectContext _context;
+
+        public AdminBlogCategoryController()
         {
-            return View();
+            _context = new BlogProjectContext();
         }
 
+        public IActionResult Index()
+        {
+            List<BlogCategoryVM> model = _context.BlogCategories.Where(q => q.IsDeleted == false).Select(q => new BlogCategoryVM()
+            {
+                ID = q.Id,
+                Name = q.Name
+            }).ToList();
+
+            return View(model);
+        }
+
+        [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-        public IActionResult Edit()
+        [HttpPost]
+        public IActionResult Add(BlogCategoryVM blogCategoryVM)
         {
-            return View();
+            BlogCategory blogCategory = new BlogCategory();
+            blogCategory.Name = blogCategoryVM.Name;
+
+            _context.BlogCategories.Add(blogCategory);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Delete()
+        [HttpGet]
+        public IActionResult Edit(int Id)
         {
-            return View();
+            BlogCategory category = _context.BlogCategories.FirstOrDefault(q => q.Id == Id);
+            BlogCategoryVM blogCategoryVM = new BlogCategoryVM()
+            {
+                ID = category.Id,
+                Name = category.Name
+            };
+
+            return View(blogCategoryVM);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(BlogCategoryVM blogCategoryVM)
+        {
+            BlogCategory category = _context.BlogCategories.FirstOrDefault(q => q.Id == blogCategoryVM.ID);
+            category.Name = blogCategoryVM.Name;
+
+            _context.BlogCategories.Update(category);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            BlogCategory category = _context.BlogCategories.FirstOrDefault(q => q.Id == Id);
+            category.IsDeleted = true;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
