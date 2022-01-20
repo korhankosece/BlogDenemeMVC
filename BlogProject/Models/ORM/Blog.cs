@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogProject.Models.ORM
@@ -12,5 +13,7 @@ namespace BlogProject.Models.ORM
         public int BlogCategoryId { get; set; }
         [ForeignKey("BlogCategoryId")]
         public BlogCategory BlogCategory { get; set; }
+
+        public List<BlogImage> Blogs { get; set; }
     }
 }
