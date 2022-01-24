@@ -1,0 +1,36 @@
+﻿    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<BlogProject.Models.VM.BlogVM>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<div style="display:flex;justify-content:flex-end;margin-bottom:1rem">
+    <a class="btn btn-primary" href="/AdminBlogCategory/Add">Add Blog Category</a>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Subtitle</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.ID</th>
+            <td>@item.Title</td>
+            <td>@item.Subtitle</td>
+            <td>@item.CategoryName</td>
+            <td>
+                <a href="/AdminBlogCategory/Edit/@item.ID"><i class="bi bi-pencil"></i></a>
+                <a href="/AdminBlogCategory/Delete/@item.ID"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

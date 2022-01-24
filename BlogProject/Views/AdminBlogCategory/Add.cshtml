@@ -11,8 +11,11 @@
     <form action="/AdminBlogCategory/Add" method="post">
         <div class="form-group">
             <div class="mb-3">
+
+                @*@Html.ValidationSummary()*@
                 <label for="formGroupExampleInput" class="form-label">Name</label>
                 @Html.TextBoxFor(q=> q.Name, new { @class="form-control", @id= "formGroupExampleInput"})
+                @Html.ValidationMessageFor(q=> q.Name,"", new { @class = "alert", })
                 @*<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Buraya yazın..">*@
             </div>
             <div class="col-md-offset-2 col-md-10">

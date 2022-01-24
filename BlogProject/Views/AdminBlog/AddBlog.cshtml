@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BlogProject.Models.VM.BlogCreateVM
+
+<div class="form-horizontal">
+    <h4>Add New Category</h4>
+    <hr />
+
+    <form action="/AdminBlog/AddBlog" method="post">
+        <div class="form-group">
+            @Html.ValidationSummary()
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                @Html.TextBoxFor(q => q.Title, new { @class = "form-control" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Subtitle</label>
+                @Html.TextBoxFor(q => q.Subtitle, new { @class = "form-control" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="categories">Category Name</label>
+                <select name="BlogCategoryId" id>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
+

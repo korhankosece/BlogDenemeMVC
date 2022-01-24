@@ -37,13 +37,20 @@ namespace BlogProject.Controllers
         [HttpPost]
         public IActionResult Add(BlogCategoryVM blogCategoryVM)
         {
-            BlogCategory blogCategory = new BlogCategory();
-            blogCategory.Name = blogCategoryVM.Name;
+            if (ModelState.IsValid)
+            {
+                BlogCategory blogCategory = new BlogCategory();
+                blogCategory.Name = blogCategoryVM.Name;
 
-            _context.BlogCategories.Add(blogCategory);
-            _context.SaveChanges();
+                _context.BlogCategories.Add(blogCategory);
+                _context.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(blogCategoryVM);
+            }
         }
 
         [HttpGet]
