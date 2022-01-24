@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BlogProject.Models.VM.AdminUserVM
+
+<div class="form-horizontal">
+    <h4>Add New Category</h4>
+    <hr />
+
+    <form action="/AdminUser/Add" method="post">
+        <div class="form-group">
+            <div class="mb-3">
+
+                <label for="formGroupExampleInput" class="form-label">E-Mail</label>
+                @Html.TextBoxFor(q => q.Email, new { @class = "form-control", @id = "formGroupExampleInput" })
+                @Html.ValidationMessageFor(q => q.Email, "", new { @class = "alert", })
+
+            </div>
+            <div class="mb-3">
+
+                <label for="formGroupExampleInput" class="form-label">Password</label>
+                @Html.TextBoxFor(q => q.Password, new { @class = "form-control", @id = "formGroupExampleInput" })
+                @Html.ValidationMessageFor(q => q.Password, "", new { @class = "alert", })
+
+            </div>
+            <div class="mb-3">
+
+                <label for="formGroupExampleInput" class="form-label">Confirm Password</label>
+                @Html.TextBoxFor(q => q.ConfirmPassword, new { @class = "form-control", @id = "formGroupExampleInput" })
+                @Html.ValidationMessageFor(q => q.ConfirmPassword, "", new { @class = "alert", })
+
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
