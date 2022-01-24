@@ -10,6 +10,7 @@ namespace BlogProject.Controllers
     public class AdminBlogController : Controller
     {
         BlogProjectContext _context;
+
         public AdminBlogController()
         {
             _context = new BlogProjectContext();
@@ -31,11 +32,12 @@ namespace BlogProject.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            List<BlogCategoryVM> model = _context.BlogCategories.Where(q => q.IsDeleted == false).Select(q => new BlogCategoryVM()
-            {
-                ID = q.Id,
-                Name = q.Name
-            }).ToList();
+            List<BlogCategoryVM> model = _context.BlogCategories.Where(q => q.IsDeleted == false).Select(q =>
+                new BlogCategoryVM()
+                {
+                    ID = q.Id,
+                    Name = q.Name
+                }).ToList();
 
             BlogCreateVM blogCreateVM = new BlogCreateVM();
             blogCreateVM.Categories = model;
@@ -46,7 +48,6 @@ namespace BlogProject.Controllers
         [HttpPost]
         public IActionResult Add(BlogCreateVM blogCreateVm)
         {
-            
             Blog blog = new Blog();
             if (ModelState.IsValid)
             {
@@ -62,9 +63,52 @@ namespace BlogProject.Controllers
             {
                 return View(blogCreateVm);
             }
-
         }
 
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(q => q.Id == Id);
+            List<BlogCategoryVM> categories = _context.BlogCategories.Where(q => q.IsDeleted == false).Select(q =>
+                new BlogCategoryVM()
+                {
+                    ID = q.Id,
+                    Name = q.Name
+                }).ToList();
+            BlogVM blogVm = new BlogVM()
+            {
+                ID = blog.Id,
+                Title = blog.Title,
+                Subtitle = blog.Subtitle,
+                CategoryID = blog.BlogCategoryId,
+                Categories = categories
+            };
 
+            return View(blogVm);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(BlogVM blogVM)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(q => q.Id == blogVM.ID);
+            blog.Title = blogVM.Title;
+            blog.Subtitle = blogVM.Subtitle;
+            blog.BlogCategoryId = blogVM.CategoryID;
+
+
+            _context.Blogs.Update(blog);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(q => q.Id == id);
+            blog.IsDeleted = true;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

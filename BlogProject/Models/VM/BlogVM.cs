@@ -12,6 +12,7 @@ namespace BlogProject.Models.VM
         public string Subtitle { get; set; }
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
+        public List<BlogCategoryVM> Categories { get; set; }
 
     }
 }
