@@ -23,12 +23,8 @@
 
             <div class="mb-3">
                 <label class="form-label" for="categories">Category Name</label>
-                <select name="BlogCategoryId" id>
-                    @foreach (var item in Model.Categories)
-                    {
-                        <option value="@item.ID">@item.Name</option>
-                    }
-                </select>
+                @Html.DropDownListFor(model => model.CategoryId, Model.Categories.Select(x => new SelectListItem { Text = x.Name, Value = x.ID.ToString() }))
+                
             </div>
 
             <div class="col-md-offset-2 col-md-10">

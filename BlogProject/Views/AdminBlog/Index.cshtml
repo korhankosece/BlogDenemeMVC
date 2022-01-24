@@ -1,4 +1,5 @@
-﻿    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 @model List<BlogProject.Models.VM.BlogVM>
@@ -21,16 +22,16 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <th scope="row">@item.ID</th>
-            <td>@item.Title</td>
-            <td>@item.Subtitle</td>
-            <td>@item.CategoryName</td>
-            <td>
-                <a href="/AdminBlogCategory/Edit/@item.ID"><i class="bi bi-pencil"></i></a>
-                <a href="/AdminBlogCategory/Delete/@item.ID"><i class="bi bi-trash"></i></a>
-            </td>
-        </tr>
+            <tr>
+                <th scope="row">@item.ID</th>
+                <td>@item.Title</td>
+                <td>@item.Subtitle</td>
+                <td>@item.CategoryName</td>
+                <td>
+                    <a href="/AdminBlogCategory/Edit/@item.ID"><i class="bi bi-pencil"></i></a>
+                    <a href="/AdminBlogCategory/Delete/@item.ID"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
