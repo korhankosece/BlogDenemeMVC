@@ -21,10 +21,15 @@
                 @Html.TextBoxFor(q => q.Subtitle, new { @class = "form-control" })
             </div>
 
+            <div class="form-group">
+                <label>Content:</label>
+                <textarea name="Content" id="content" class="form-control ckeditor"></textarea>
+            </div>
+
             <div class="mb-3">
                 <label class="form-label" for="categories">Category Name</label>
                 @Html.DropDownListFor(model => model.CategoryId, Model.Categories.Select(x => new SelectListItem { Text = x.Name, Value = x.ID.ToString() }))
-                
+
             </div>
 
             <div class="col-md-offset-2 col-md-10">

@@ -53,6 +53,7 @@ namespace BlogProject.Controllers
             {
                 blog.Title = blogCreateVm.Title;
                 blog.Subtitle = blogCreateVm.Subtitle;
+                blog.Content = blogCreateVm.Content;
                 blog.BlogCategoryId = blogCreateVm.CategoryId;
                 _context.Blogs.Add(blog);
                 _context.SaveChanges();
