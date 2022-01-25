@@ -56,7 +56,7 @@ namespace BlogProject.Controllers
                 blog.BlogCategoryId = blogCreateVm.CategoryId;
                 _context.Blogs.Add(blog);
                 _context.SaveChanges();
-
+                    
                 return RedirectToAction("Index");
             }
             else
