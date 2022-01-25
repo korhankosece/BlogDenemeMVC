@@ -23,6 +23,7 @@ namespace BlogProject.Controllers
                 ID = q.Id,
                 Title = q.Title,
                 Subtitle = q.Subtitle,
+                Content =q.Content,
                 CategoryName = q.BlogCategory.Name
             }).ToList();
 
@@ -82,6 +83,7 @@ namespace BlogProject.Controllers
                 Title = blog.Title,
                 Subtitle = blog.Subtitle,
                 CategoryID = blog.BlogCategoryId,
+                Content = blog.Content,
                 Categories = categories
             };
 
@@ -95,6 +97,7 @@ namespace BlogProject.Controllers
             blog.Title = blogVM.Title;
             blog.Subtitle = blogVM.Subtitle;
             blog.BlogCategoryId = blogVM.CategoryID;
+            blog.Content = blogVM.Content;
 
 
             _context.Blogs.Update(blog);

@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace BlogProject.Models.VM
 {
-    public class BlogVM
+    public class BlogDetailVM
     {
         public int ID { get; set; }
         public string Title { get; set; }
         public string Subtitle { get; set; }
+        
         public string Content { get; set; }
-        public int CategoryID { get; set; }
         public string CategoryName { get; set; }
-        public List<BlogCategoryVM> Categories { get; set; }
+        public DateTime AddDate { get; set; }
 
     }
 }
