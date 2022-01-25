@@ -19,7 +19,16 @@ namespace BlogProject.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<BlogDetailVM> blogDetailVms = _context.Blogs.Where(p => p.IsDeleted == false)
+                .Select(q => new BlogDetailVM()
+                {
+                    ID = q.Id,
+                    Title = q.Title,
+                    Subtitle = q.Subtitle,
+                    AddDate = q.AddDate
+                }).ToList();
+
+            return View(blogDetailVms);
         }
 
         public IActionResult About()
