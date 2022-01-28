@@ -56,8 +56,8 @@ namespace BlogProject.Controllers
                 Subtitle = blog.Subtitle,
                 Content = blog.Content,
                 CategoryName = blog.BlogCategory.Name,
-                AddDate = blog.AddDate
-                
+                AddDate = blog.AddDate,
+                MainImagePath = blog.MainImg
             };
             return View(blogDetailVm);
         }

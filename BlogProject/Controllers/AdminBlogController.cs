@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.IO;
 
 namespace BlogProject.Controllers
 {
@@ -52,9 +54,30 @@ namespace BlogProject.Controllers
             Blog blog = new Blog();
             if (ModelState.IsValid)
             {
+                string imagePath = "";
+
+                if (blogCreateVm.blogImage != null)
+                {
+                    var guid = Guid.NewGuid().ToString();
+                    var extension = Path.GetExtension(blogCreateVm.blogImage.FileName);
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/blogimage", guid + extension);
+
+                    using (var stream = System.IO.File.Create(path))
+                    {
+                        blogCreateVm.blogImage.CopyTo(stream);
+                    }
+                    //using (var stream = new FileStream(path, FileMode.Create))
+                    //{
+                    //    blogCreateVm.blogImage.CopyTo(stream);
+                    //}
+                    imagePath = guid + extension;
+                }
+
+
                 blog.Title = blogCreateVm.Title;
                 blog.Subtitle = blogCreateVm.Subtitle;
                 blog.Content = blogCreateVm.Content;
+                blog.MainImg = imagePath;
                 blog.BlogCategoryId = blogCreateVm.CategoryId;
                 _context.Blogs.Add(blog);
                 _context.SaveChanges();
@@ -99,6 +122,13 @@ namespace BlogProject.Controllers
             blog.BlogCategoryId = blogVM.CategoryID;
             blog.Content = blogVM.Content;
 
+            //kişi foto yükledimi kontrol edilmeli
+            //yüklediyse dbden foto ismini yakala
+            //    var imagePath = Path.Combine(anadizin, klasör, fotoğraf);
+            //if (File.Exists(imagePath))
+            //{
+            //    File.Delete(imagePath);
+            //}
 
             _context.Blogs.Update(blog);
             _context.SaveChanges();

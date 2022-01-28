@@ -8,7 +8,7 @@
     <h4>Add New Blog</h4>
     <hr />
 
-    <form action="/AdminBlog/Add" method="post">
+    <form action="/AdminBlog/Add" method="post" enctype="multipart/form-data">
         <div class="form-group">
             @Html.ValidationSummary()
             <div class="mb-3">
@@ -31,11 +31,16 @@
                 @Html.DropDownListFor(model => model.CategoryId, Model.Categories.Select(x => new SelectListItem { Text = x.Name, Value = x.ID.ToString() }))
 
             </div>
+            <div class="mb-3">
+                <label class="form-label">Image</label>
+                <input type="file" name="blogImage" accept="image/x-png,image/gif,image/jpeg"/>
+            </div>
+
 
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Add" class="btn btn-primary" />
             </div>
         </div>
-    </form>
+</form>
 </div>
 
